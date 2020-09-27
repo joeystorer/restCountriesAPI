@@ -2,5 +2,25 @@
 
 body {
     font-family: 'Nunito Snas', sans-serif;
+    background-color: hsl(0, 0%, 98%);
+    margin: 0;
+}
+
+header {
+    background-color: #fff;
+}
+
+svg {
+    width: 1em;
+    height: auto;
+}
+
+.header-container {
+    max-width: 1440px;
+    font-size: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
 }
 
