@@ -6,28 +6,70 @@ body {
     margin: 0;
 }
 
+body.dark-theme {
+    background-color: hsl(209, 23%, 22%);
+}
+
 header {
     background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.10);
+    color: hsl(200, 15%, 8%);
+}
+
+body.dark-theme header {
+    background-color: hsl(207, 26%, 17%);
+    color: #fff;
+}
+
+header  h1 {
+    font-size: 1.5em;
+    width: 10em;
 }
 
 svg {
     width: 1em;
-    height: auto;
+    height: 1em;
 }
 
-.header-container {
+.header-container, .input-container, .countries-container {
     max-width: 1440px;
-    font-size: 1vw;
+    font-size: 3vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1em;
+    padding: 2em;
+    flex-wrap: wrap;
 }
 
 .theme-btn {
-    font-size: 1em;
+    font-size: 1.3em;
     border: none;
     background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+#themeBtnLight {
+    display: none;
+}
+
+#themeBtnDark {
+    display: flex;
+    color: hsl(200, 15%, 8%);
+}
+
+body.dark-theme #themeBtnLight {
+    display: flex;
+    color: #fff;
+}
+
+body.dark-theme #themeBtnDark {
+    display: none;
+}
+
+.theme-btn svg {
+    margin-right: .5em;
 }
 
 .theme-btn .dark-moon {
@@ -40,4 +82,129 @@ body.dark-theme .theme-btn .dark-moon {
 
 body.dark-theme .theme-btn .light-moon {
     display: none;
+}
+
+.search-bar {
+    padding: 2em;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.10);
+    font-size: 1em;
+    width: 100%;
+    margin: 0 0 3em;
+    color: hsl(200, 15%, 8%);
+}
+
+body.dark-theme .search-bar {
+    background-color: hsl(207, 26%, 17%);
+    color: #fff;
+}
+
+.dropdown-menu {
+    box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.10);
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 1em;
+    padding: 2em;
+    position: relative;
+    width: 10em;
+    display: flex;  
+    align-items: center;
+    cursor: pointer;
+    color: hsl(200, 15%, 8%);
+}
+
+body.dark-theme .dropdown-menu {
+    background-color: hsl(207, 26%, 17%);
+    color: #fff;
+}
+
+.dropdown-menu .arrow-up {
+    display: none;
+}
+
+.dropdown-menu .arrow-down {
+    margin-left: 1em;
+}
+
+.dropdown-menu ul {
+    display: none;
+    position: absolute;
+    box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.10);
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 2em;
+    width: 100%;
+    list-style-type: none;
+    left: 0;
+    top: 100%;
+    width: 10em;
+    color: hsl(200, 15%, 8%);
+}
+
+body.dark-theme .dropdown-menu ul {
+    background-color: hsl(207, 26%, 17%);
+    color: #fff;
+}
+
+
+.dropdown-menu.open ul {
+    display: block;
+}
+
+.dropdown-menu.open .arrow-up {
+    display: block;
+    margin-left: 1em;
+}
+
+.dropdown-menu.open .arrow-down {
+    display: none;
+}
+
+.dropdown-menu ul li {
+    margin: .5em;
+}
+
+.country {
+    box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.10);
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 20em;
+    cursor: pointer;
+    margin: 1em;
+    color: hsl(200, 15%, 8%);
+}
+
+body.dark-theme .country {
+    background-color: hsl(207, 26%, 17%);
+    color: #fff;
+}
+
+.country img {
+    width: 100%;
+    height: 13em;
+}
+
+.country-info {
+    padding: 1em;
+}
+
+.country-name {
+    margin-top: 0;
+}
+
+.countries-container {
+    justify-content: center;
+}
+
+@media screen and (min-width: 1024px) {
+    .header-container, .input-container, .countries-container {
+        font-size: 1vw;
+    }
+
+    .search-bar {
+        width: 25em;
+        margin: 0;
+    }
 }

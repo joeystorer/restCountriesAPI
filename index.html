@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Countries Code Challenge</title>
-    <link rel="stylesheet" href="countriesStyles.css">
+    <link rel="stylesheet" href="/countriesStyles.css">
 </head>
 
 <body>
@@ -12,23 +12,25 @@
         <div class="header-container">
             <h1>Where in the world?</h1>
 
-            <button class="theme-btn">
+            <button class="theme-btn" id="themeBtnDark">
                 <svg class="light-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <path
                         d="M448.964 365.617C348.188 384.809 255.14 307.765 255.14 205.419c0-58.893 31.561-112.832 82.574-141.862 25.83-14.7 19.333-53.859-10.015-59.28A258.114 258.114 0 0 0 280.947 0c-141.334 0-256 114.546-256 256 0 141.334 114.547 256 256 256 78.931 0 151.079-35.924 198.85-94.783 18.846-23.22-1.706-57.149-30.833-51.6zM280.947 480c-123.712 0-224-100.288-224-224s100.288-224 224-224c13.984 0 27.665 1.294 40.94 3.745-58.972 33.56-98.747 96.969-98.747 169.674 0 122.606 111.613 214.523 231.81 191.632C413.881 447.653 351.196 480 280.947 480z" />
                 </svg>
-                <svg class="dark-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                Dark Mode</button>
+            <button class="theme-btn" id="themeBtnLight">
+                <svg fill="#fff" class="dark-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <path
                         d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z" />
                 </svg>
-                Dark Mode</button>
+                Light Mode</button>
         </div>
     </header>
     <section class="input-container">
-        <input type="text" placeholder="Search for a Country">
-        <div class="dropdown-menu">
+        <input id="searchBar" class="search-bar" type="text" placeholder="Search for a Country">
+        <div class="dropdown-menu" id="dropDownBtn">
             Filter by Region
-            <svg calss="arrow-up" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <svg class="arrow-up" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                 <path
                     d="M168.5 164.2l148 146.8c4.7 4.7 4.7 12.3 0 17l-19.8 19.8c-4.7 4.7-12.3 4.7-17 0L160 229.3 40.3 347.8c-4.7 4.7-12.3 4.7-17 0L3.5 328c-4.7-4.7-4.7-12.3 0-17l148-146.8c4.7-4.7 12.3-4.7 17 0z" />
             </svg>
@@ -36,7 +38,7 @@
                 <path
                     d="M151.5 347.8L3.5 201c-4.7-4.7-4.7-12.3 0-17l19.8-19.8c4.7-4.7 12.3-4.7 17 0L160 282.7l119.7-118.5c4.7-4.7 12.3-4.7 17 0l19.8 19.8c4.7 4.7 4.7 12.3 0 17l-148 146.8c-4.7 4.7-12.3 4.7-17 0z" />
             </svg>
-            <ul>
+            <ul id="dropDownList">
                 <li>Africa</li>
                 <li>America</li>
                 <li>Asia</li>
@@ -46,18 +48,7 @@
         </div>
 
     </section>
-    <section class="countries-container">
-        <article class="country">
-            <div class="flag-img">
-                <img src="" alt="">
-            </div>
-            <div class="country-info">
-                <h2 class="coutry-name">Test name</h2>
-                <p><strong>Population:</strong>test pop</p>
-                <p><strong>Region:</strong>test region</p>
-                <p><strong>Captial:</strong>test capital</p>
-            </div>
-        </article>
+    <section class="countries-container" id="countriesContainer">
     </section>
     <script src="countriesScript.js"></script>
 </body>
