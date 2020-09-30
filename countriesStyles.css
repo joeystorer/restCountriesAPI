@@ -24,3 +24,20 @@ svg {
     padding: 1em;
 }
 
+.theme-btn {
+    font-size: 1em;
+    border: none;
+    background-color: transparent;
+}
+
+.theme-btn .dark-moon {
+    display: none;
+}
+
+body.dark-theme .theme-btn .dark-moon {
+    display: inline-block;
+}
+
+body.dark-theme .theme-btn .light-moon {
+    display: none;
+}
