@@ -4,14 +4,15 @@ const themeBtn = document.getElementsByClassName("theme-btn"),
     countriesContainer = document.getElementById("countriesContainer"),
     searchBar = document.getElementById("searchBar"),
     regions = dropDownBtn.querySelectorAll('li'),
-    countryModal = document.getElementById("countryModal");
+    countryModal = document.getElementById("countryModal"),
+    backBtn = document.getElementById("back");
       
 
 for (var i = 0; i < themeBtn.length; i++) {
     themeBtn[i].addEventListener("click", () => {
         document.body.classList.toggle("dark-theme");
     });
-}
+};
 
 dropDownBtn.addEventListener("click", () => {
         dropDownBtn.classList.toggle("open");
@@ -22,7 +23,7 @@ async function getData() {
     const response = await fetch("https://restcountries.eu/rest/v2/all"),
         countryData = await response.json();
         createCountries(countryData);
-}
+};
 
 function createCountries(countryData) {
     countriesContainer.innerHTML = "";
@@ -43,11 +44,11 @@ function createCountries(countryData) {
         `;
         country.addEventListener("click", () => {
             countryModal.style.display = 'flex';
-			countryDetails(country);
+			countryDetails(element);
         })
         countriesContainer.appendChild(country)
     });
-}
+};
 
 
 searchBar.addEventListener('input', e => {
@@ -83,42 +84,54 @@ regions.forEach(area => {
 	});
 });
 
-function countryDetails(country) {
+function countryDetails(countryData) {
 	const modalContent = countryModal.querySelector('.modal-content'),
 	      flag = countryModal.querySelector('img');
+          flag.src = countryData.flag;
+            modalContent.innerHTML = `
+                <h2>${countryData.name}</h2>
+                <p>
+                    <strong>Native Name:</strong>
+                    ${countryData.nativeName}
+                </p>
+                <p>
+                    <strong>Population:</strong>
+                    ${countryData.population}
+                </p>
+                <p>
+                    <strong>Region:</strong>
+                    ${countryData.region}
+                </p>
+                <p>
+                    <strong>Sub Region:</strong>
+                    ${countryData.subregion}
+                </p>
+                <p>
+                    <strong>Capital:</strong>
+                    ${countryData.capital}
+                </p>
 
-          flag.src = country.flag;
-debugger;
-	modalContent.innerHTML = `
-        <h2>${country.name}</h2>
-        <p>
-            <strong>Native Name:</strong>
-            ${country.nativeName}
-        </p>
-        <p>
-            <strong>Population:</strong>
-            ${country.population}
-        </p>
-        <p>
-            <strong>Region:</strong>
-            ${country.region}
-        </p>
-        <p>
-            <strong>Sub Region:</strong>
-            ${country.subregion}
-        </p>
-        <p>
-            <strong>Capital:</strong>
-            ${country.capital}
-        </p>
-        
-        <p>
-            <strong>Currencies:</strong>
-            ${country.currencies.map(currency => currency.code)}
-        </p>
-        <p>
-            <strong>Languages:</strong>
-            ${country.languages.map(language => language.name)}
-        </p>
-    `;
-}
+                <p>
+                    <strong>Top Level Domain:</strong>
+                    ${countryData.topLevelDomain[0]}
+                </p>
+                
+                <p>
+                    <strong>Currencies:</strong>
+                    ${countryData.currencies.map(currency => currency.code)}
+                </p>
+                <p>
+                    <strong>Languages:</strong>
+                    ${countryData.languages.map(language => language.name)}
+                </p>
+                <div class="border-countries">
+                <p><strong>Border Countries</strong>
+                    ${countryData.borders.map(border => border)}
+                </p>
+                </div>
+            `;
+};
+
+backBtn.addEventListener("click", () => {
+    countryModal.style.display = "none";
+});
