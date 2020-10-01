@@ -23,7 +23,7 @@ body.dark-theme header {
 
 header  h1 {
     font-size: 1.5em;
-    width: 10em;
+    width: 12em;
 }
 
 svg {
@@ -142,9 +142,23 @@ body.dark-theme .dropdown-menu {
     color: hsl(200, 15%, 8%);
 }
 
+.dropdown-menu li.selected {
+    background-color: hsl(207, 26%, 17%);
+    color: #fff;
+}
+
+body.dark-theme .dropdown-menu li.selected {
+    background-color: #fff;
+    color: hsl(200, 15%, 8%);
+}
+
 body.dark-theme .dropdown-menu ul {
     background-color: hsl(207, 26%, 17%);
     color: #fff;
+}
+
+body.dark-theme .dropdown-menu svg {
+    fill: #fff;
 }
 
 
@@ -196,6 +210,18 @@ body.dark-theme .country {
 
 .countries-container {
     justify-content: center;
+}
+
+.modal {
+    display: none;
+    align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 100;
 }
 
 @media screen and (min-width: 1024px) {
